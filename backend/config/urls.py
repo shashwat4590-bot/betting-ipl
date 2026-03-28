@@ -6,6 +6,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularSwaggerView,
@@ -14,7 +16,16 @@ from drf_spectacular.views import (
 
 from wallets.webhooks import nowpayments_webhook, stripe_webhook
 
+
+# 👇 ADD THIS FUNCTION
+def home(request):
+    return HttpResponse("<h1>Backend is running 🚀</h1>")
+
+
 urlpatterns = [
+    # 👇 THIS FIXES YOUR NOT FOUND
+    path('', home),
+
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/wallets/', include('wallets.urls')),
@@ -23,6 +34,7 @@ urlpatterns = [
     path('api/chat/', include('chat.urls')),
     path('api/webhooks/nowpayments/', nowpayments_webhook),
     path('api/webhooks/stripe/', stripe_webhook),
+
     # API documentation
     path('api/kyc/', include('kyc.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
