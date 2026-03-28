@@ -277,7 +277,7 @@ def crash_cashout(request):
     parameters=[
         OpenApiParameter('limit', int, description='Max rounds to return', default=20),
     ],
-    responses={200: CrashRoundSerializer(many=True)},
+    responses={200: CrashRoundSerializer}
 )
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
