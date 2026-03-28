@@ -316,7 +316,7 @@ def crash_round_detail(request, round_id):
         OpenApiParameter('page', int),
         OpenApiParameter('page_size', int),
     ],
-    responses={200: BetSerializer(many=True)},
+    responses={200: BetSerializer},
 )
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
