@@ -101,7 +101,7 @@ def mines_start(request):
             'type': 'object',
             'properties': {
                 'is_mine': {'type': 'boolean'},
-                'bet': BetSerializer(),
+                'bet': BetSerializer,
             },
         },
         400: {'description': 'Invalid tile or already revealed'},
