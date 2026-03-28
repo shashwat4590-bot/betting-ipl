@@ -29,7 +29,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('users.urls')),
     path('api/wallets/', include('wallets.urls')),
-    path('api/games/', include('games.urls')),
     path('api/sports/', include('sports.urls')),
     path('api/chat/', include('chat.urls')),
     path('api/webhooks/nowpayments/', nowpayments_webhook),
